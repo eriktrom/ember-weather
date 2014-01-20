@@ -9,7 +9,7 @@ export default Ember.Component.extend({
       valueKey: 'name',
       limit: 10,
       remote: '/api/search/%QUERY'
-    });
+    }).focus();
 
     var self = this;
 
