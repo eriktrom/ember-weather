@@ -1,18 +1,12 @@
 export default DS.JSONSerializer.extend({
   extractFind: function(store, type, payload) {
-    var ret = normalizeObject(payload);
-    window.console.log("location serializer data is %o", ret);
-    return ret;
+    return normalizeObject(payload);
   },
 
   extractFindAll: function (store, type, payload) {
-    var a_map = Ember.ArrayPolyfills.map;
-    var ret = a_map.call(payload, function (record) {
+    return payload.map(function (record) {
       return normalizeObject(record);
     });
-
-    window.console.log("location findAll serializer data", ret);
-    return ret;
   }
 
 });

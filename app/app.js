@@ -1,6 +1,4 @@
 import Resolver from 'resolver';
-import stringUtil from 'appkit/utils/string-util';
-stringUtil();
 
 /**
  * Canary Features: http://emberjs.com/guides/configuring-ember/feature-flags/

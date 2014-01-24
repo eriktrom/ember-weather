@@ -1,4 +1,3 @@
-/*global localStorage*/
 import getJSON from "appkit/utils/get-json";
 
 export default DS.LSAdapter.extend({
@@ -21,14 +20,13 @@ export default DS.LSAdapter.extend({
    */
   findAll: function (store, type) {
     var namespace = this._namespaceForType(type);
-    var a_map = Ember.ArrayPolyfills.map;
 
     var results = [];
     for (var id in namespace.records) {
       results.push(Ember.copy(namespace.records[id].id));
     }
 
-    return Ember.RSVP.all(a_map.call(results, function (result) {
+    return Ember.RSVP.all(results.map(function (result) {
       return getJSON('/api/weather/' + result);
     }));
   }
